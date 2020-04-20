@@ -1,0 +1,142 @@
+%YAML 1.1
+---
+actions:
+- utter_welcome
+- utter_welcome1
+- action_distance
+- utter_butter
+- utter_vada
+- utter_address
+- utter_items
+- utter_payment
+- action_default_fallback
+- action_order
+- utter_deny
+- utter_list1
+- utter_list2
+- utter_thanks
+- utter_online
+- utter_default
+- action_north
+- action_south
+- action_restart
+config:
+  store_entities_as_slots: true
+entities:
+- food
+- address
+- house
+- mobile
+forms: []
+intents:
+- greet:
+    use_entities: true
+- north_indian:
+    use_entities: true
+- south_indian:
+    use_entities: true
+- north_south_food_item:
+    use_entities: true
+- user_address:
+    use_entities: true
+- user_affirm:
+    use_entities: true
+- user_cod:
+    use_entities: true
+- user_deny:
+    use_entities: true
+- user_item_again:
+    use_entities: true
+- user_add_again:
+    use_entities: true
+- user_online:
+    use_entities: true
+- user_restart:
+    use_entities: true
+slots:
+  address:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  food:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  house:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  mobile:
+    auto_fill: true
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+templates:
+  utter_address:
+  - text: Please enter your address and mobile number. Your address must be within
+      the 5 km distance range from Punjabi Tadka.
+  utter_butter:
+  - image: /static/bot_img/north_mixed.jpg
+    text: Our special North Indian items are...
+  utter_deny:
+  - buttons:
+    - payload: /user_item_again
+      title: Food Items
+    - payload: /user_add_again
+      title: Address & Mobile no.
+    text: What do you want to change ?
+  utter_items:
+  - buttons:
+    - payload: /north_indian
+      title: North Indian
+    - payload: /south_indian
+      title: South Indian
+    text: Here you can select the cuisine.
+  utter_list1:
+  - buttons:
+    - payload: /north_south_food_item{"food":"Butter Chicken"}
+      title: Butter Chicken
+    - payload: /north_south_food_item{"food":"Paratha"}
+      title: Paratha
+    - payload: /north_south_food_item{"food":"Chole Bhature"}
+      title: Chole Bhature
+    - payload: /north_south_food_item{"food":"Paneer Tikka"}
+      title: Paneer Tikka
+    text: Make your choice
+  utter_list2:
+  - buttons:
+    - payload: /north_south_food_item{"food":"Vada"}
+      title: Vada
+    - payload: /north_south_food_item{"food":"Rasam Rice"}
+      title: Rasam Rice
+    - payload: /north_south_food_item{"food":"Masala Dosa"}
+      title: Masala Dosa
+    - payload: /north_south_food_item{"food":"Sambar"}
+      title: Sambar
+    text: Make your choice
+  utter_online:
+  - buttons:
+    - payload: /user_cod
+      title: Cash on Delivery
+    text: Online Payment service is not available. Click below for Cash on Delivery.
+  utter_payment:
+  - buttons:
+    - payload: /user_cod
+      title: Cash on Delivery
+    - payload: /user_online
+      title: Online
+    text: Make choice for payment.
+  utter_thanks:
+  - text: Thanks for using our service. Have a nice day.
+  utter_vada:
+  - image: /static/bot_img/south_mixed.jpg
+    text: Our special South Indian items are...
+  utter_welcome:
+  - image: /static/bot_img/welcome.jpg
+    text: Hi! This is Tom, Punjabi Tadka's assistant bot.
+  utter_welcome1:
+  - buttons:
+    - payload: /north_indian
+      title: North Indian
+    - payload: /south_indian
+      title: South Indian
+    text: Which cuisine would you like to have today?

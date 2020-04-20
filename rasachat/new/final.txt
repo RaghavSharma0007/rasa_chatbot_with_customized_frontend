@@ -1,0 +1,6 @@
+rasa_core==0.14.0
+spacy==2.0.18
+sklearn-crfsuite==0.3.6
+Django==2.1.7
+django-cors-headers==3.0.2
+python -m spacy download en

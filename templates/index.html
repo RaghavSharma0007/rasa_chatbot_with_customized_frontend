@@ -1,0 +1,58 @@
+{% load static %}
+
+<html>
+  <head>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-129762852-1"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-129762852-1');
+      </script>
+      <title>Django RASA Chat Bot</title>
+      <meta name=viewport content="width=device-width, initial-scale=1">
+      <link rel="icon" type="image/png" href="http://ashwinshenoy.com/img/favicon.png">
+      <!-- CSS -->
+      <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+      <script src="/static/js/socket.io.js"></script>
+      <script src="/static/js/moment.min.js"></script>
+      <script src="/static/js/moment-with-locales.min.js"></script>
+
+
+
+  </head>
+  <body>
+
+
+    <div class="container">
+
+      <a href="https://github.com/Alexmhack/Django-Rasa-Sockets">
+<!--
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="{% static 'img/star.svg' %}">
+-->
+      </a>
+
+      <div class="text-center hd1">
+        <img src="{% static 'img/bot1.svg' %}" alt="bot1">
+        <br>
+        Welcome to Chat Bot
+        <input type="hidden" id="myVar" name="variable" value="{{ uid }}">
+        <br>
+        
+      </div>
+
+      <mybot></mybot>
+
+    </div><!--container end-->
+
+
+    <!--JS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script src="{% static 'js/chat.js' %}"></script>
+  </body>
+</html>
